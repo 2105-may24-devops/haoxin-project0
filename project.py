@@ -66,6 +66,7 @@ def login():
  
  
 # 主菜单
+#main menu
 def show_menu():
     while True:
         print("="*50)
@@ -90,6 +91,7 @@ def show_menu():
  
  
 # 添加图书
+#Add Book
 def add_book():
     print("="*50)
     print("Welcome to the add book page！")
@@ -112,6 +114,7 @@ def add_book():
  
  
 # 显示图书
+#Show Book
 def all_book():
     print("="*50)
     print("Show all books")
@@ -122,11 +125,13 @@ def all_book():
  
  
 # 修改图书
+#Edit Book
 def update_book():
     print("="*50)
     print("Welcome to the edit book page！")
     update_id = input("Please enter the book number：")
     # 对输入的图书编号进行判断
+    #Judge The Entered Book Number
     if update_id in book_id_list:
         for up_book in book_list:
             if up_book["id"] == update_id:
@@ -135,22 +140,27 @@ def update_book():
                 print("Successfully modified！")
  
     # 对输入的图书编号错误进行提示
+    #Prompt for the Wrong Book Number Entered
     else:
         print("Book number does not exist！")
  
  
 # 查找图书，先根据图书名称查询，然后从同名图书中选择一本(输入编号)
+#To find a book, first query according to the book name, and then select one from the books of the same name(Enter the number)
 def find_book():
     print("="*50)
     print("Welcome to the book query page！")
     # 存储按图书名称查询的结果
+    #Story the result by query of book name
     fd_book_list = []
     while True:
         fd_name = input("Please enter the book name, return to the previous step and press N：")
         # 退出操作选项
+        # exit operation options
         if fd_name == "N":
             break
         # 输入图书名称正确，才进行查询
+        # Enter the name of the book correctly before querying
         if fd_name in book_name_list:
             print("search result")
             for fd_book in book_list:
@@ -160,16 +170,19 @@ def find_book():
                     print("Book number %s\nBook name: %s\nStorage location：%s" % (fd_book["id"], fd_book["name"], fd_book["location"]))
                     print()
         # 对输入图书名称不正确的提示，并返回输入图书名称界面
+        # Prompt for incorrect book name input, and return to the book name input interface
         else:
             print("Book [%s] does not exist" % fd_name)
             continue
  
         # 从按图书名称查询结果中选择一本图书，输入图书编号
+        # Select a book from the search results by book name and enter the book number
         while True:
             fd_new_id = input("Please select a book number, return to the previous step and press N：")
             if fd_new_id == "N":
                 break
             # 输入正确的图书编号，才继续查询
+            # Enter the correct book number to continue the query
             if fd_new_id in book_id_list:
                 print("search result")
                 for fd_new_book in fd_book_list:
@@ -178,13 +191,16 @@ def find_book():
                               (fd_new_book["id"], fd_new_book["name"], fd_new_book["location"]))
                         print()
             # 对输入错误图书编号的提示
+            #Tips for entering the wrong book number
             else:
                 print("Book number [%s] does not exist" % fd_new_id)
                 # 返回输入图书名称界面
+                # Return to the interface for entering the book name
                 break
  
  
 # 删除图书
+# Delete Book
 def del_book():
     print("=" * 50)
     print("Welcome to delete book page！")
@@ -196,11 +212,13 @@ def del_book():
                 print("successfully deleted！")
  
     # 对输入的图书编号错误进行提示
+    # Prompt for the Wrong book number entered
     else:
         print("Book number does not exist！")
  
  
 # 主程序
+# Main Program
 def main():
     login_menu()
     show_menu()
