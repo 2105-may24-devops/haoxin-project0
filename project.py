@@ -1,3 +1,4 @@
+
 # Store account information for login information comparison. 
 # An account already exists, which is used to initially compare whether the username of the newly registered account already exists
 member = [{"name": "root", "pwd": "python"}]
@@ -221,7 +222,7 @@ def del_book():
 def main():
     login_menu()
     show_menu()
- 
- 
 if __name__ == '__main__':
- main()
+    main()
+
+ 
