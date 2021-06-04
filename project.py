@@ -222,7 +222,7 @@ def del_book():
 def main():
     login_menu()
     show_menu()
- 
- 
 if __name__ == '__main__':
- main()
+    main()
+
+ 
