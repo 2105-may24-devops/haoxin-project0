@@ -1,24 +1,37 @@
 ---
-- name: gihubplaybook
-  hosts: all
+  # This play deploys the project to the virtual hosts.
+  
+- name: Install Python3, pip
+  hosts: virtuals
   become: yes
   tasks:
-  - name: git
-    package:
-        name: git
-        state: present
-  - name: python3
-    package:
+    - name: install python3
+      ansible.builtin.package:
         name: python3
-        state: present
-  - name: "clone or git pull"
+        state: latest
+    - name: install python3-venv
+      ansible.builtin.package:
+        name: python3-venv
+        state: latest
+    - name: install git
+      ansible.builtin.package:
+        name: git
+        state: latest
+    - name: Ensure pip is installed on hosts
+      ansible.builtin.package:
+        name: python3-pip
+        state: present  
+     
+# Deploy Project 0
+- name: Deploy Project 0
+  hosts: virtuals
+  become: yes
+  tasks:
+  - name: Clone/Update
     git:
-        repo: https://github.com/2105-may24-devops/haoxin-project0.git
-        dest: /home/haoxin
-        update: yes
-- name: install python packages
-  pip: name={{ item }} virtualenv={{ venv }}
-  with_items: [ buildbot ]
-- name: create buildbot master
-  command: "{{ venv }}/bin/buildbot create-master ~/buildbot
-            creates=~/buildbot/buildbot.tac"
+      repo: https://github.com/2105-may24-devops/anthony-project-0.git
+      dest: /home/haoxin/haoxin-project0/
+      clone: yes
+      update: yes
+  - name: Install dependencies  
+    ansible.builtin.script: ./install-requirements.sh

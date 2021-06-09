@@ -1,10 +1,11 @@
 ---
-#required uninstall playbook
-- name: uninstall the app
+#this runs the bash script for system testing hopefully
+- name: system test script
   hosts: all
 
   tasks:
-    - name: remove directory with app and venv
-      file:
-        path: haoxin-project0
-        state: absent
+    - name: run bash test script
+      ansible.builtin.script:
+        #path to the script
+        cmd: ~/haoxin-project0/testscript.sh
+  
