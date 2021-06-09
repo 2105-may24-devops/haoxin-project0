@@ -7,5 +7,5 @@
     - name: run bash test script
       ansible.builtin.script:
         #path to the script
-        cmd: ~/haoxin-project0/testscript.sh
+        cmd: ~/haoxin-project0/project_test.sh
   
