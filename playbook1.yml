@@ -1,0 +1,24 @@
+---
+- name: gihubplaybook
+  hosts: all
+  become: yes
+  tasks:
+  - name: git
+    package:
+        name: git
+        state: present
+  - name: python3
+    package:
+        name: python3
+        state: present
+  - name: "clone or git pull"
+    git:
+        repo: https://github.com/2105-may24-devops/haoxin-project0.git
+        dest: /home/haoxin
+        update: yes
+- name: install python packages
+  pip: name={{ item }} virtualenv={{ venv }}
+  with_items: [ buildbot ]
+- name: create buildbot master
+  command: "{{ venv }}/bin/buildbot create-master ~/buildbot
+            creates=~/buildbot/buildbot.tac"

@@ -1,0 +1,3 @@
+show all booksBook number: 1
+Book name: 1
+Storage location: 1

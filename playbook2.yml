@@ -1,0 +1,10 @@
+---
+#required uninstall playbook
+- name: uninstall the app
+  hosts: all
+
+  tasks:
+    - name: remove directory with app and venv
+      file:
+        path: haoxin-project0
+        state: absent
