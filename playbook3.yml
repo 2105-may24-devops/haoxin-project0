@@ -1,10 +1,12 @@
 ---
-#required uninstall playbook
-- name: uninstall the app
-  hosts: all
 
+- name: cleanup by deleting base folder
+  vars:
+    base_path: mdtest
+  hosts: revature
   tasks:
-    - name: remove directory with app and venv
-      file:
-        path: haoxin-project0
-        state: absent
+  - name: delete the whole folder
+    file:
+      path: ~/{{ base_path }}/
+      state: absent
+...
