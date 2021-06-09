@@ -34,4 +34,4 @@
       clone: yes
       update: yes
   - name: Install dependencies  
-    ansible.builtin.script: ./install-requirements.sh
+    ansible.builtin.script: ./requirements.sh
