@@ -3,7 +3,7 @@
 - name: cleanup by deleting base folder
   vars:
     base_path: mdtest
-  hosts: revature
+  hosts: all
   tasks:
   - name: delete the whole folder
     file:
