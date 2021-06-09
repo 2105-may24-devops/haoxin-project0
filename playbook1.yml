@@ -29,7 +29,7 @@
   tasks:
   - name: Clone/Update
     git:
-      repo: https://github.com/2105-may24-devops/anthony-project-0.git
+      repo: https://github.com/2105-may24-devops/haoxin-project0
       dest: /home/haoxin/haoxin-project0/
       clone: yes
       update: yes
