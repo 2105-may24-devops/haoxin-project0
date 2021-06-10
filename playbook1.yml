@@ -5,19 +5,19 @@
   hosts: all
   become: yes
   tasks:
-    - name: install python3
+    - name: install the python3 in ansible
       ansible.builtin.package:
         name: python3
         state: latest
-    - name: install python3-venv
+    - name: install the python3-venv in ansible
       ansible.builtin.package:
         name: python3-venv
         state: latest
-    - name: install git
+    - name: install the git in ansible
       ansible.builtin.package:
         name: git
         state: latest
-    - name: Ensure pip is installed on hosts
+    - name: make sure the pip is installed on hosts
       ansible.builtin.package:
         name: python3-pip
         state: present  
