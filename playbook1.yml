@@ -2,7 +2,7 @@
   # This play deploys the project to the virtual hosts.
   
 - name: Install Python3, pip
-  hosts: virtuals
+  hosts: all
   become: yes
   tasks:
     - name: install python3
@@ -24,7 +24,7 @@
      
 # Deploy Project 0
 - name: Deploy Project 0
-  hosts: virtuals
+  hosts: all
   become: yes
   tasks:
   - name: Clone/Update
